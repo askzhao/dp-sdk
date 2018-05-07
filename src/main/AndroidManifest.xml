@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.sensorsdata.analytics.android.sdk">
+    package="com.askzhao.dp.android.sdk">
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -16,7 +16,7 @@
 
     <application>
         <provider
-            android:name="com.sensorsdata.analytics.android.sdk.SensorsDataContentProvider"
+            android:name=".SensorsDataContentProvider"
             android:authorities="${applicationId}.SensorsDataContentProvider"
             android:enabled="true"
             android:exported="false" />
