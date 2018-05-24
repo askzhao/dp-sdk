@@ -339,7 +339,7 @@ public class RuntimeBridge {
             MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
 
             Method method = methodSignature.getMethod();
-            SensorsDataTrackEvent trackEvent = method.getAnnotation(SensorsDataTrackEvent.class);
+            TrackEvent trackEvent = method.getAnnotation(TrackEvent.class);
             String eventName = trackEvent.eventName();
             if (TextUtils.isEmpty(eventName)) {
                 return;

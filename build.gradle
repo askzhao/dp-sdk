@@ -45,13 +45,6 @@ android {
 }
 
 
-ext.deps = [
-
-        // AspectJ
-        aspectjRuntime: "org.aspectj:aspectjrt:1.8.10",
-        aspectjTools  : "org.aspectj:aspectjtools:1.8.10",
-
-]
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
