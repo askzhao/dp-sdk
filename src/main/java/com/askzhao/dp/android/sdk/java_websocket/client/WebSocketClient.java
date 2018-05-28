@@ -25,6 +25,8 @@ import com.askzhao.dp.android.sdk.java_websocket.handshake.HandshakeImpl1Client;
 import com.askzhao.dp.android.sdk.java_websocket.handshake.Handshakedata;
 import com.askzhao.dp.android.sdk.java_websocket.handshake.ServerHandshake;
 
+import android.util.Log;
+
 /**
  * A subclass must implement at least <var>onOpen</var>, <var>onClose</var>, and <var>onMessage</var> to be
  * useful. At runtime the user is expected to establish a connection via {@link #connect()}, then receive events like {@link #onMessage(String)} via the overloaded methods and to {@link #send(String)} data to the server.

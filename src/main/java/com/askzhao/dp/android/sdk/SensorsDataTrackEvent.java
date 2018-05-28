@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface TrackEvent {
+public @interface SensorsDataTrackEvent {
     String eventName() default "";
     String properties() default "{}";
 }

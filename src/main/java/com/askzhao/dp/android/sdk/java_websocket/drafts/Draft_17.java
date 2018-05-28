@@ -4,6 +4,8 @@ import com.askzhao.dp.android.sdk.java_websocket.exceptions.InvalidHandshakeExce
 import com.askzhao.dp.android.sdk.java_websocket.handshake.ClientHandshake;
 import com.askzhao.dp.android.sdk.java_websocket.handshake.ClientHandshakeBuilder;
 
+import android.util.Log;
+
 public class Draft_17 extends Draft_10 {
     @Override
     public HandshakeState acceptHandshakeAsServer(ClientHandshake handshakedata) throws InvalidHandshakeException {

@@ -21,6 +21,7 @@ import android.text.TextUtils;
 import android.webkit.WebSettings;
 
 import com.askzhao.dp.android.sdk.SALog;
+import com.askzhao.dp.android.sdk.SensorsDataSDKRemoteConfig;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,6 +41,42 @@ import java.util.Map;
 import java.util.UUID;
 
 public final class SensorsDataUtils {
+    /**
+     * 将 json 格式的字符串转成 SensorsDataSDKRemoteConfig 对象，并处理默认值
+     * @param config
+     * @return
+     */
+    public static SensorsDataSDKRemoteConfig toSDKRemoteConfig(String config) {
+        SensorsDataSDKRemoteConfig sdkRemoteConfig = new SensorsDataSDKRemoteConfig();
+        try {
+            if (!TextUtils.isEmpty(config)) {
+                JSONObject jsonObject = new JSONObject(config);
+                sdkRemoteConfig.setV(jsonObject.optString("v"));
+
+                if (!TextUtils.isEmpty(jsonObject.optString("configs"))) {
+                    JSONObject configObject = new JSONObject(jsonObject.optString("configs"));
+                    sdkRemoteConfig.setDisableDebugMode(configObject.optBoolean("disableDebugMode", false));
+                    sdkRemoteConfig.setDisableSDK(configObject.optBoolean("disableSDK", false));
+                    sdkRemoteConfig.setAutoTrackMode(configObject.optInt("autoTrackMode", -1));
+                } else {
+                    //默认配置
+                    sdkRemoteConfig.setDisableDebugMode(false);
+                    sdkRemoteConfig.setDisableSDK(false);
+                    sdkRemoteConfig.setAutoTrackMode(-1);
+                }
+                return sdkRemoteConfig;
+            } else {
+                //默认配置
+                sdkRemoteConfig.setDisableDebugMode(false);
+                sdkRemoteConfig.setDisableSDK(false);
+                sdkRemoteConfig.setAutoTrackMode(-1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sdkRemoteConfig;
+    }
+
     public static String getCarrier(Context context) {
         try {
             if (SensorsDataUtils.checkHasPermission(context, "android.permission.READ_PHONE_STATE")) {

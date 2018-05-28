@@ -33,9 +33,12 @@ import org.json.JSONObject;
 import java.lang.reflect.Method;
 import java.util.Locale;
 
+/**
+ * Created by 王灼洲 on 2017/8/26
+ */
 
-public class RuntimeBridge {
-    private final static String TAG = "RuntimeBridge";
+public class SensorsDataRuntimeBridge {
+    private final static String TAG = "SensorsDataRuntimeBridge";
 
     //FragmentAspectj
     public static void onFragmentOnResumeMethod(JoinPoint joinPoint) {
@@ -339,7 +342,7 @@ public class RuntimeBridge {
             MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
 
             Method method = methodSignature.getMethod();
-            TrackEvent trackEvent = method.getAnnotation(TrackEvent.class);
+            SensorsDataTrackEvent trackEvent = method.getAnnotation(SensorsDataTrackEvent.class);
             String eventName = trackEvent.eventName();
             if (TextUtils.isEmpty(eventName)) {
                 return;

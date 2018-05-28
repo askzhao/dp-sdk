@@ -3,6 +3,7 @@ package com.askzhao.dp.android.sdk.java_websocket;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.ByteChannel;
+import java.nio.channels.spi.AbstractSelectableChannel;
 
 import com.askzhao.dp.android.sdk.java_websocket.WebSocket.Role;
 
